@@ -1,12 +1,10 @@
 /// Writer for GraphViz .dot files
 ///
-//
-//	DotWriter.swift
-//
 
 import Foundation
 
 /// Quote an identifier, if needed.
+///
 /// According to the Dot documentation an ID is:
 /// 
 /// - Any string of alphabetic ([a-zA-Z\200-\377]) characters, underscores
@@ -16,6 +14,12 @@ import Foundation
 ///   (\")1;
 /// - an HTML string (<...>).
 ///
+/// - Parameters:
+///
+///     - string: String to be quoted
+///
+/// - Returns: Quoted identifier.
+/// 
 func dotQuoteID(_ string: String) -> String {
     /*
     ID is:
@@ -51,6 +55,14 @@ func dotQuoteID(_ string: String) -> String {
     }
 }
 
+/// Forat attribute list into a string.
+///
+/// - Parameters:
+///
+///     - dict: dictionary of attributes.
+///
+/// - Returns: Formatted string.
+///
 func dotAttributeList(_ dict: [String:String]) -> String {
     let retval = dict.map {
         key, value in
